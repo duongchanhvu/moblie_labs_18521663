@@ -143,13 +143,15 @@
                             android:layout_width="180dp"
                             android:layout_height="180dp"
                             android:background="@android:color/holo_green_light"
-                            android:layout_margin="5dp"/>
+                            android:layout_margin="5dp"
+                            android:text="He'd have you all unravel at the"/>
 
                         <TextView
                             android:layout_width="180dp"
                             android:layout_height="180dp"
                             android:background="@android:color/holo_blue_light"
-                            android:layout_margin="5dp"/>
+                            android:layout_margin="5dp"
+                            android:text="Heed not the rabble"/>
 
                     </TableRow>
 
@@ -162,14 +164,15 @@
                             android:layout_width="180dp"
                             android:layout_height="180dp"
                             android:background="@android:color/holo_red_light"
-                            android:layout_margin="5dp"/>
+                            android:layout_margin="5dp"
+                            android:text="Sound of screams but the"/>
 
                         <TextView
                             android:layout_width="180dp"
                             android:layout_height="180dp"
                             android:background="@android:color/holo_orange_light"
                             android:layout_margin="5dp"
-                            />
+                            android:text="Who scream"/>
                     </TableRow>
                 </TableLayout>
             </RelativeLayout>
