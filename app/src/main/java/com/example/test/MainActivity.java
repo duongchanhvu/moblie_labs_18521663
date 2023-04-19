@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,23 +28,30 @@ public class MainActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference usersRef = db.collection("users");
     Button addDataBtn;
-
+    EditText inputName;
+    EditText inputPhoneNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        inputName = findViewById(R.id.fullName);
+        inputPhoneNumber = findViewById(R.id.phoneNumber);
         addDataBtn = findViewById(R.id.addDataBtn);
 
-        Person a = new Person("Duong Chanh Vu", "123");
 
         addDataBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String name = inputName.getText().toString();
+                String phone = inputPhoneNumber.getText().toString();
+                Person a = new Person(name, phone);
+
                 Map<String, Object> data = new HashMap<>();
-                data.put("Name", "Michael");
-                data.put("PhoneNumber", "504110204");
+                data.put("Name", a.getName());
+                data.put("PhoneNumber", a.getPhoneNumber());
                 usersRef.add(data)
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
@@ -59,6 +67,5 @@ public class MainActivity extends AppCompatActivity {
                         });
             }
         });
-
     }
 }

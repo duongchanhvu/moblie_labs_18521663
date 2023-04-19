@@ -12,23 +12,93 @@
         android:orientation="vertical"
         >
 
-        <Button
-            android:id="@+id/addDataBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:minHeight="48dp"
-            android:text="@string/add_data"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/full_name"
+            android:textSize="20sp"
+            android:padding="5dp"
+            android:textStyle="bold"/>
 
-        <Button
-            android:id="@+id/queryAllDataBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:minHeight="48dp"
-            android:text="@string/query_all_data"
-            android:layout_gravity="center"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fullName"
+            android:layout_width="match_parent" android:maxWidth="488dp"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            />
+            android:hint="@string/please_enter_full_name"
+            android:minHeight="48dp"
+            tools:ignore="VisualLintTextFieldSize" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/phone"
+            android:textSize="20sp"
+            android:padding="5dp"
+            android:textStyle="bold"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent" android:maxWidth="448dp"
+            android:layout_height="wrap_content" android:minHeight="48dp"
+            android:id="@+id/phoneNumber"
+            android:hint="@string/please_enter_phone"
+            android:padding="5dp"
+            android:layout_margin="10dp"
+            tools:ignore="VisualLintTextFieldSize" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/addDataBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:minHeight="48dp"
+                android:text="@string/add_data_remote"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:textSize="12sp"
+                />
+
+            <Button
+                android:id="@+id/queryAllDataBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:minHeight="48dp"
+                android:text="@string/add_data_local"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:textSize="12sp"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:id="@+id/addDataLocalBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:minHeight="48dp"
+                android:text="@string/query_data_remote"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:textSize="12sp"
+                />
+
+            <Button
+                android:id="@+id/queryAllDataLocalBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:minHeight="48dp"
+                android:text="@string/query_data_local"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:textSize="12sp"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
 
     </LinearLayout>
