@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "764472708092",
+    "project_id": "moblie-lab3",
+    "storage_bucket": "moblie-lab3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764472708092:android:f6ae5e6a70c51d3e9f4079",
+        "android_client_info": {
+          "package_name": "com.example.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "764472708092-i91256k77p40d18mt6eb6j5mqqjk8rf7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPGkDD9Dp_zUjtDUGz-3NGsjsHUfCZukQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "764472708092-i91256k77p40d18mt6eb6j5mqqjk8rf7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

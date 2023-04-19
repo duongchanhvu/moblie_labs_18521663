@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">test</string>
+    <string name="add_data">Add data</string>
+    <string name="query_all_data">Query all data</string>
 </resources>
