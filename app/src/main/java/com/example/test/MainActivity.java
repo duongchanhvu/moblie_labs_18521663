@@ -4,11 +4,13 @@ import static android.content.ContentValues.TAG;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -21,15 +23,21 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import java.util.HashMap;
 import java.util.Map;
 
+import database.DatabaseHelper;
 import objects.Person;
 
 public class MainActivity extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference usersRef = db.collection("users");
-    Button addDataBtn;
+    Button addDataBtn, addDataLocalBtn;
+
+    Button queryDataBtn, queryDataLocalBtn;
+
     EditText inputName;
     EditText inputPhoneNumber;
+
+    DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +47,24 @@ public class MainActivity extends AppCompatActivity {
         inputName = findViewById(R.id.fullName);
         inputPhoneNumber = findViewById(R.id.phoneNumber);
         addDataBtn = findViewById(R.id.addDataBtn);
+        queryDataBtn = findViewById(R.id.queryDataRemoteBtn);
 
+        addDataLocalBtn = findViewById(R.id.addDataLocal);
+        queryDataLocalBtn = findViewById(R.id.queryAllDataLocalBtn);
+
+
+        databaseHelper = new DatabaseHelper(this);
+
+        addDataLocalBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = inputName.getText().toString();
+                String phone = inputPhoneNumber.getText().toString();
+                Person a = new Person(name, phone);
+                databaseHelper.insertContact(a);
+                Toast.makeText(MainActivity.this, "Contact saved to database", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         addDataBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,11 +72,11 @@ public class MainActivity extends AppCompatActivity {
 
                 String name = inputName.getText().toString();
                 String phone = inputPhoneNumber.getText().toString();
-                Person a = new Person(name, phone);
+                Person a = new Person( name, phone);
 
                 Map<String, Object> data = new HashMap<>();
-                data.put("Name", a.getName());
-                data.put("PhoneNumber", a.getPhoneNumber());
+                data.put("Name", name);
+                data.put("PhoneNumber", phone);
                 usersRef.add(data)
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
@@ -67,5 +92,7 @@ public class MainActivity extends AppCompatActivity {
                         });
             }
         });
+
+
     }
 }

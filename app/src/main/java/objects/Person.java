@@ -1,16 +1,17 @@
 package objects;
 
-import java.util.Scanner;
-
 public class Person {
+
+    protected int ID;
+
     protected String name;
     protected String phoneNumber;
 
-    public Person (){
+    public Person (String name, String phone){
 
     }
 
-    public Person (String name, String phoneNumber){
+    public Person (int ID, String name, String phoneNumber){
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
