@@ -4,16 +4,17 @@ public class Person {
 
     protected int ID;
 
-    protected String name;
-    protected String phoneNumber;
+    public String name;
+    public String phoneNumber;
 
-    public Person (String name, String phone){
-
+    public Person (String a, String b){
+        this.name = a;
+        this.phoneNumber = b;
     }
 
-    public Person (int ID, String name, String phoneNumber){
-        this.name = name;
-        this.phoneNumber = phoneNumber;
+    public Person (int ID, String a, String b){
+        this.name = a;
+        this.phoneNumber = b;
     }
 
     public void setName(String name) {
@@ -29,7 +30,7 @@ public class Person {
     }
 
     public String getPhoneNumber(){
-        return this.phoneNumber;
+        return phoneNumber;
     }
 
 }

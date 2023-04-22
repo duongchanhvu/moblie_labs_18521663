@@ -4,12 +4,14 @@ import static android.content.ContentValues.TAG;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -21,6 +23,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import database.DatabaseHelper;
@@ -39,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
     DatabaseHelper databaseHelper;
 
+    TextView dataTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,14 +51,18 @@ public class MainActivity extends AppCompatActivity {
 
         inputName = findViewById(R.id.fullName);
         inputPhoneNumber = findViewById(R.id.phoneNumber);
+
         addDataBtn = findViewById(R.id.addDataBtn);
         queryDataBtn = findViewById(R.id.queryDataRemoteBtn);
 
         addDataLocalBtn = findViewById(R.id.addDataLocal);
         queryDataLocalBtn = findViewById(R.id.queryAllDataLocalBtn);
 
+//        dataTextView = findViewById(R.id.dataTextView);
 
         databaseHelper = new DatabaseHelper(this);
+
+
 
         addDataLocalBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,13 +75,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        queryDataLocalBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                List<String> dataList = databaseHelper.getAllData();
+//                StringBuilder sb = new StringBuilder();
+//                for (String data : dataList){
+//                    sb.append(data).append("\n");
+//                }
+//                dataTextView.setText(sb.toString());
+
+                Intent intent;
+                intent = new Intent(MainActivity.this, ShowAllLocalData.class);
+                startActivity(intent);
+                finish();
+
+            }
+        });
+
         addDataBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 String name = inputName.getText().toString();
                 String phone = inputPhoneNumber.getText().toString();
-                Person a = new Person( name, phone);
 
                 Map<String, Object> data = new HashMap<>();
                 data.put("Name", name);
